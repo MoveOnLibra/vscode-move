@@ -1,0 +1,107 @@
+{
+  "name": "move",
+  "version": "0.0.1",
+  "description": "Debugging, Intellisense, Functional tests, Snippets, and more.",
+  "publisher": "MoveOnLibra",
+  "displayName": "Move/Libra",
+  "categories": [
+    "Programming Languages",
+    "Debuggers",
+    "Linters",
+    "Snippets",
+    "Formatters",
+    "Other"
+  ],
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "activationEvents": [
+    "onLanguage:mvir",
+    "onLanguage:move",
+    "onDebugResolve:mvir",
+    "onDebugResolve:move"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "move",
+        "aliases": [
+          "Move",
+          "LibraMove"
+        ],
+        "extensions": [
+          ".move"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "mvir",
+        "aliases": [
+          "MVIR",
+          "mvir",
+          "Move IR"
+        ],
+        "extensions": [
+          ".mvir"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "move-spec",
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "move",
+        "scopeName": "source.move",
+        "path": "./syntaxes/move.tmLanguage.json"
+      },
+      {
+        "language": "mvir",
+        "scopeName": "source.mvir",
+        "path": "./syntaxes/mvir.tmLanguage.json"
+      },
+      {
+        "language": "move-spec",
+        "scopeName": "source.move.spec",
+        "path": "./syntaxes/move.spec.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Move IDE"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MoveOnLibra/vscode-move.git"
+  },
+  "keywords": [
+    "libra",
+    "move",
+    "mvir",
+    "move ide",
+    "move-ide",
+    "libra-ide"
+  ],
+  "author": "Yuan xy <yuan_xin_yu@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MoveOnLibra/vscode-move/issues"
+  },
+  "homepage": "https://github.com/MoveOnLibra/vscode-move",
+  "devDependencies": {
+    "@types/node": "^14.0.1",
+    "@types/vscode": "^1.43.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^6.1.3"
+  },
+  "__npminstall_done": false
+}
