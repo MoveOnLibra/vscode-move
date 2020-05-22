@@ -1,6 +1,6 @@
 {
   "name": "move",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Debugging, Intellisense, Functional tests, Snippets, and more.",
   "publisher": "MoveOnLibra",
   "displayName": "Move/Libra",
