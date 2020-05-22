@@ -12,10 +12,13 @@
     "Formatters",
     "Other"
   ],
-  "scripts": {
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
-  },
+	"scripts": {
+		"vscode:prepublish": "cd client && cnpm run update-vscode && cd .. && cnpm run compile",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"postinstall": "cd client && cnpm install && cd ../server && cnpm install && cd ..",
+		"test": "sh ./scripts/e2e.sh"
+	},
   "engines": {
     "vscode": "^1.43.0"
   },
@@ -25,7 +28,7 @@
     "onDebugResolve:mvir",
     "onDebugResolve:move"
   ],
-  "main": "./dist/extension.js",
+  "main": "./client/out/extension",
   "contributes": {
     "languages": [
       {
@@ -73,9 +76,29 @@
         "path": "./syntaxes/move.spec.tmLanguage.json"
       }
     ],
-    "configuration": {
-      "title": "Move IDE"
-    }
+		"configuration": {
+			"type": "object",
+			"title": "Example configuration",
+			"properties": {
+				"languageServerExample.maxNumberOfProblems": {
+					"scope": "resource",
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"languageServerExample.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "verbose",
+					"description": "Traces the communication between VS Code and the language server."
+				}
+			}
+		}
   },
   "repository": {
     "type": "git",
@@ -98,7 +121,11 @@
   "devDependencies": {
     "@types/node": "^14.0.1",
     "@types/vscode": "^1.43.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "@types/mocha": "^5.2.7",
+		"mocha": "^6.2.2",
+		"eslint": "^6.4.0",
+		"@typescript-eslint/parser": "^2.3.0"
   },
   "dependencies": {
     "vscode-languageclient": "^6.1.3"

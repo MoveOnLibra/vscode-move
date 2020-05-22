@@ -43,3 +43,6 @@ pydevd*.log
 nodeLanguageServer/**
 nodeLanguageServer.*/**
 
+out
+node_modules
+.vscode-test
