@@ -59,6 +59,16 @@
         "configuration": "./language-configuration.json"
       }
     ],
+    "snippets": [
+      {
+        "language": "move",
+        "path": "./snippets/move.json"
+      },
+      {
+        "language": "mvir",
+        "path": "./snippets/move.json"
+      }
+    ],
     "grammars": [
       {
         "language": "move",

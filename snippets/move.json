@@ -1,0 +1,42 @@
+{
+    "while": {
+        "prefix": "while",
+        "body": [
+            "while ($1) {",
+            "\t$2",
+            "};",
+            "$3"
+        ],
+        "description": "Insert while"
+    },
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if ($1) {",
+            "\t$2",
+            "};",
+            "$3"
+        ],
+        "description": "Insert if"
+    },
+    "if else": {
+        "prefix": "if",
+        "body": [
+            "if ($1) {",
+            "\t$2",
+            "} else {",
+            "\t$3",
+            "};",
+            "$4"
+        ],
+        "description": "Insert if-else"
+    },
+    "assert": {
+        "prefix": "assert",
+        "body": [
+            "Transaction::assert($1, $2);",
+            "$3"
+        ],
+        "description": "Insert assert"
+    }
+}
